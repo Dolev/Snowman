@@ -4,7 +4,7 @@
  * 
  * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
  *
- * AUTHORS: <DOLEV HINDY>
+ * AUTHORS: <Please write your names here>
  * 
  * Date: 2021-02
  */
@@ -14,46 +14,31 @@
 using namespace ariel;
 
 #include <string>
+#include <algorithm>
 using namespace std;
+
+/**
+ * Returns the input string without the whitespace characters: space, newline and tab.
+ * Requires std=c++2a.
+ */
+string nospaces(string input) {
+	std::erase(input, ' ');
+	std::erase(input, '\t');
+	std::erase(input, '\n');
+	std::erase(input, '\r');
+	return input;
+}
 
 
 TEST_CASE("Good snowman code") {
-    CHECK(snowman(11114411) == string("_===_\n(.,.)\n( : )\n( : )"));
+    CHECK(nospaces(snowman(11114411)) == nospaces("_===_\n(.,.)\n( : )\n( : )"));
     /* Add more checks here */
-    CHECK(snowman(11114412) == string("_===_\n(.,.)\n( : )\n(" ")"));
-    CHECK(snowman(11114414) == string("_===_\n(.,.)\n( : )\n(   )"));
-    CHECK(snowman(11114413) == string("_===_\n(.,.)\n( : )\n(___)"));
-    CHECK(snowman(11114434) == string("_===_\n(.,.)\n(> <)\n(   )"));
-    CHECK(snowman(11114433) == string("_===_\n(.,.)\n(> <)\n(___)"));
-    CHECK(snowman(11114432) == string("_===_\n(.,.)\n(> <)\n(" ")"));
-    CHECK(snowman(11114424) == string("_===_\n(.,.)\n([ ])\n(   )"));
-    CHECK(snowman(11114423) == string("_===_\n(.,.)\n([ ])\n(___)"));
-    CHECK(snowman(11114422) == string("_===_\n(.,.)\n([ ])\n(" ")"));
-    CHECK(snowman(11114444) == string("_===_\n(.,.)\n(   )\n(   )"));
-    CHECK(snowman(11114443) == string("_===_\n(.,.)\n(   )\n(___)"));
-    CHECK(snowman(11114442) == string("_===_\n(.,.)\n(   )\n(" ")"));
-    CHECK(snowman(21114422) == string(" _\n .......\n(.,.)\n([ ])\n(" ")"));
-    CHECK(snowman(21114444) == string(" _\n .......\n(.,.)\n(   )\n(   )"));
-    CHECK(snowman(21114443) == string(" _\n .......\n(.,.)\n(   )\n(___)"));
-    CHECK(snowman(21114442) == string(" _\n .......\n(.,.)\n(   )\n(" ")"));
-
 }
 
 TEST_CASE("Bad snowman code") {
-    CHECK_THROWS(snowman(555));  // 5- out of options
+    CHECK_THROWS(snowman(555));
     /* Add more checks here */
-    CHECK_THROWS(snowman(444));//not enough parameters   *maybe
-    CHECK_THROWS(snowman(1234A32)); //Char
-    CHECK_THROWS(snowman(1511411));//has to be 8 int
-    CHECK_THROWS(snowman(66666666)); //6 - out of options
-    CHECK_THROWS(snowman(111144111));// 9 -Chars
-    CHECK_THROWS(snowman(1+114411)); // WRONG INPUT
-    CHECK_THROWS(snowman(15114451));
-    CHECK_THROWS(snowman(151144-1));
 }
 
 
 /* Add more test cases here */
-TEST_CASE("More bad snowman code") {
-
-}
