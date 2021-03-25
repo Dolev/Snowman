@@ -28,7 +28,7 @@ TEST_CASE("Good snowman code") {
     CHECK(snowman(11114422) == string("_===_\n(.,.)\n([ ])\n(" ")"));
     CHECK(snowman(11114444) == string("_===_\n(.,.)\n(   )\n(   )"));
     CHECK(snowman(11114443) == string("_===_\n(.,.)\n(   )\n(___)"));
-    CHECK(snowman(11114442) == string("_===_\n(.,.)\n(   )\n(" ")"));
+    CHECK(snowman(11114342) == string("_===_\n(.,.)/\n(   )\n(" ")"));
 
 }
 
@@ -39,8 +39,7 @@ TEST_CASE("Bad snowman code") {
     //CHECK_THROWS(snowman(1234a32)); //Char
     CHECK_THROWS(snowman(15114411));
     CHECK_THROWS(snowman(66666666)); //6 - out of options
-    CHECK_THROWS(snowman(111144111));// 9 -Chars
-    
+    CHECK_THROWS(snowman(111144111));// 9 -Chars   
     CHECK_THROWS(snowman(1+114411)); // WRONG INPUT
     CHECK_THROWS(snowman(15114411));
     CHECK_THROWS(snowman(15176411));
